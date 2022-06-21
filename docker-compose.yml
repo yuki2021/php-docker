@@ -3,6 +3,14 @@ services:
   php:
     build: .
     volumes:
-      - ./html:/var/www/html
+      - ~/Dropbox/blog_text_compression:/var/www/html
+    hostname: sample-web
     ports:
       - '8080:80'
+    networks:
+      - sample-network
+
+networks:
+    sample-network:
+        name: sample-network
+        external: true
